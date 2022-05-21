@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Loader animation</title>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        margin: 0;
+      }
+      .track {
+        stroke-width: 40;
+        stroke-linecap: round;
+        stroke-dasharray: 1000;
+        fill: none;
+      }
+
+      .light {
+        stroke-dashoffset: 0;
+        stroke: #f6a7ca;
+      }
+
+      .dark {
+        stroke: #f43397;
+        stroke-dashoffset: 1000;
+        animation: flow 1.5s infinite forwards;
+      }
+
+      .right {
+        animation-delay: 0.3s;
+      }
+
+      @keyframes flow {
+        50% {
+          stroke-dashoffset: 0;
+        }
+
+        100% {
+          stroke-dashoffset: -1000;
+        }
+      }
+    </style>
+  </head>
+
+  <body style="height: 100vh; display: grid; place-items: center;">
+    <svg width="260" height="300">
+      <path
+        class="track light"
+        d="M 30 250,L 30 150,
+        A 50 50 0 0 1 130 150,
+        L 130 250,M 130 150,A 50 50 0 0 1 180 100,A 50 50 0 0 1 230 150,L 230 250"
+      />
+      <path
+        class="track dark"
+        d="M 30 250,L 30 150, A 50 50 0 0 1 130 150,L 130 250"
+      />
+      <path
+        class="track dark right"
+        d="M 130 250,L 130 150,A 50 50 0 0 1 230 150,L 230 250"
+      />
+    </svg>
+  </body>
+</html>
